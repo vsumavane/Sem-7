@@ -18,7 +18,7 @@ def loan_approval_system(credit_score, income_level, collateral):
     else:
         return "Deny loan"
 
-# Step 3: Generate and execute test cases
+# Step 3: Generate and execute test caseslkjasdf
 def run_test_cases(decision_table):
     for i, test_case in enumerate(decision_table):
         credit_score = test_case["credit_score"]
