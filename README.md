@@ -61,7 +61,7 @@ This section contains the practicals related to Software Testing & Quality Assur
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/7th-semester-practicals.git
+    git clone [https://github.com/vsumavane/Sem-7]
     ```
 2. Navigate to the desired subject directory to access the practicals.
 
