@@ -1,0 +1,94 @@
+db.createCollection("employees");
+db.employees.insertMany([
+  { empId: 1, name: "Clark", dept: "Sales" },
+  { empId: 2, name: "Dave", dept: "Accounting" },
+  { empId: 3, name: "Ava", dept: "Sales" },
+]);
+
+db.employees.find({ dept: "Sales" });
+db.employees.insert({ empId: 4, name: "Raja", dept: "marketing" });
+db.employees.update({ name: "Raja" }, { $set: { name: "Alise" } });
+db.employees.find({ dept: "marketing" });
+db.employees.remove({ dept: "Accounting" });
+db.createCollection("orders");
+db.orders.insertMany([
+  {
+    id: 0,
+    name: "Pepperoni",
+    size: "small",
+    price: 19,
+    quantity: 10,
+    date: ISODate("2021-03-13T08:14:30Z"),
+  },
+  {
+    id: 1,
+    name: "Pepperoni",
+    size: "medium",
+    price: 20,
+    quantity: 20,
+    date: ISODate("2021-03-13T09:13:24Z"),
+  },
+  {
+    id: 2,
+    name: "Pepperoni",
+    size: "large",
+    price: 21,
+    quantity: 30,
+    date: ISODate("2021-03-17T09:22:12Z"),
+  },
+  {
+    id: 3,
+    name: "Cheese",
+    size: "small",
+    price: 12,
+    quantity: 15,
+    date: ISODate("2021-03-13T11:21:39.736Z"),
+  },
+  {
+    id: 4,
+    name: "Cheese",
+    size: "medium",
+    price: 13,
+    quantity: 50,
+    date: ISODate("2022-01-12T21:23:13.331Z"),
+  },
+  {
+    id: 5,
+    name: "Cheese",
+    size: "large",
+    price: 14,
+    quantity: 10,
+    date: ISODate("2022-01-12T05:08:13Z"),
+  },
+  {
+    id: 6,
+    name: "Vegan",
+    size: "small",
+    price: 17,
+    quantity: 10,
+    date: ISODate("2021-01-13T05:08:13Z"),
+  },
+  {
+    id: 7,
+    name: "Vegan",
+    size: "medium",
+    price: 18,
+    quantity: 10,
+    date: ISODate("2021-01-13T05:10:13Z"),
+  },
+]);
+
+db.orders.find({ size: "medium" });
+db.orders.insert({
+  id: 9,
+  name: "Vegan",
+  size: "medium",
+  price: 8,
+  quantity: 5,
+  date: ISODate("2021-01-22T05:10:13Z"),
+});
+db.orders.updateMany({ name: "Vegan" }, { $set: { name: "Veg" } });
+db.orders.find({ name: "Veg" });
+db.orders.remove({ name: "Pepperoni" });
+db.orders.find({ $and: [{ name: "Veg" }, { size: "small" }] });
+db.orders.find();

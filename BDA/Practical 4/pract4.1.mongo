@@ -1,0 +1,96 @@
+use studentdb; 
+db.createCollection("student"); 
+
+// Insert multiple documents using insertMany with an array 
+
+db.student.insertMany([ 
+  { 
+    no: 1, 
+    name: "Vishal", 
+    dob: "19-11-2002", 
+    e_mail: "vumavane@gmail.com", 
+    phone: "7039144205", 
+    address: { 
+      building: "1234", 
+      street: "main road", 
+      zipcode: "421306" 
+    }, 
+    Branch: "CSE", 
+    marks: [50, 70, 60] 
+  }, 
+  { 
+    no: 2, 
+    name: "Harsh", 
+    dob: "17-07-2003", 
+    e_mail: "harshsingh@gmail.com", 
+    phone: "8208629356", 
+    address: { 
+      building: "5678", 
+      street: "main road", 
+      zipcode: "431511" 
+    }, 
+    Branch: "CSE", 
+    marks: [45, 20, 80] 
+  }, 
+
+  { 
+    no: 3, 
+    name: "Akash", 
+    dob: "30-09-2003", 
+    e_mail: "akashpanchal@gmail.com", 
+    phone: "9890898563", 
+    address: { 
+      building: "1256", 
+      street: "main road", 
+      zipcode: "431511" 
+    }, 
+    Branch: "CSE", 
+    marks: [59, 89, 68] 
+  }, 
+  { 
+    no: 4, 
+    name: "Vidya", 
+    dob: "15-04-2003", 
+    e_mail: "vidya85@gmail.com", 
+    phone: "9698741235", 
+    address: { 
+      building: "3478", 
+      street: "main road", 
+      zipcode: "431511" 
+    }, 
+    Branch: "CSE", 
+    marks: [53, 29, 33] 
+  }, 
+  { 
+    no: 5, 
+    name: "Sahil", 
+    dob: "13-05-2003", 
+    e_mail: "sahil168@gmail.com", 
+    phone: "9642317893", 
+    address: { 
+      building: "2525", 
+      street: "ain road", 
+      zipcode: "431511" 
+    }, 
+    Branch: "CSE", 
+    marks: [61, 20, 66] 
+  } 
+]); 
+  
+db.student.find() 
+  
+db.student.update({no:1},{$set:{name:"Rishikesh"}}) 
+
+db.student.find({name:/^R/}) 
+
+db.student.find({name:/l$/}) 
+
+db.student.find({name:/S/}) 
+
+db.student.count() 
+
+db.studnet.find().forEach(function(myDoc) {print("name: Vidya "+myDoc.name);}) 
+
+db.student.find().limit(2); 
+
+db.student.find().sort({"name": -1}) 
